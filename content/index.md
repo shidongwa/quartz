@@ -176,16 +176,7 @@ tags:
 68. [[TreeMap]]
 69. [[Trie]]
 
-# Java
+# GitHub
 ---
-# 网络
----
-
-# 数据库
----
-
-# 前端
----
-
-# AI
+1. (https://hadyang.github.io/interview/)
 ---
