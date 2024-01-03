@@ -1,4 +1,4 @@
-# My Landing Page
+cf# My Landing Page
 
 
 ---
@@ -6,3 +6,5 @@
 
 - [ ] Mimo — Learn to Code
 - [x] Pocket — Listen anything from web
+- [ ] Anki (https://docs.ankiweb.net/background.html)
+- [ ] 
