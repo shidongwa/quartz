@@ -15,13 +15,14 @@ Graphs can be represented in 3 ways:
 - Objects and pointers
 
 | Operation | Adjacency Matrix | Adjancency List |
-| - | - | -|
+| ---- | ---- | ---- |
 | Storage space | Because of the use of a $V \cdot V$ matrix, space = $O(v^2)$ | $O(V \cdot E)$ |
 | + vertex | Storage must increase to $(V +1)^2$, and to achieve this we must copy the entire array. Therefore, $O(n^2)$ | $O(1)$, as we're just adding an item to a list |
 | + edge | `matrix[i][j] = 1`, so $O(1)$ | Same as adding a vertex, $O(1)$ |
 | - vertex | Storage must be decreased, so $O(v^2)$ | To remove a vertex, we must search for it. After this we must search for edges, so $O(V \cdot E)$ |
-| - edge | `matrix[i][j] = 0`, so $O(1)$| Must traverse through all edges, so $O(E)$ |
+| - edge | `matrix[i][j] = 0`, so $O(1)$ | Must traverse through all edges, so $O(E)$ |
 | Querying | Content of the matrix must be checked - this lookup is $O(1)$ | To check for an edge, we must check for vertices adjacent to a given vertex. A vertex can have $V$ neighbours and worst-case we have to check every one. So time complexity is $O(V)$. |
+|  |  |  |
 
 
 
