@@ -3,5 +3,6 @@ parent: "[[Fleeting MOC]]"
 tags:
   - 🪴weedy
   - dailyNotes
-date:
+date: 
+draft: false
 ---
