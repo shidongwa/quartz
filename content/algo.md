@@ -1,11 +1,11 @@
 ---
-title: Welcome to My Landing Page
+title: Welcome to My Algo Page
 tags:
   - Algorithm
   - "#SystemDesign"
   - "#interviewprep"
 ---
-## Labuladong Algorithm
+## Labuladong Algorithm, Thanks!
 
 ### 高频面试
 ---
