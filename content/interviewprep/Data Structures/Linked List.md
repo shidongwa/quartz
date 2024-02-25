@@ -1,7 +1,7 @@
 ---
 tags:
   - Algorithm
-Linked List:
+Linked List: 
 ---
 # Linked-Lists
 Prefer a Linked List over an [[Array]] when:
