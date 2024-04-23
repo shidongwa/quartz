@@ -1,48 +1,12 @@
-# LRU 缓存淘汰算法设计
 
-<p align='center'>
-<a href="https://github.com/labuladong/fucking-algorithm" target="view_window"><img alt="GitHub" src="https://img.shields.io/github/stars/labuladong/fucking-algorithm?label=Stars&style=flat-square&logo=GitHub"></a>
-<a href="https://appktavsiei5995.pc.xiaoe-tech.com/index" target="_blank"><img class="my_header_icon" src="https://img.shields.io/static/v1?label=精品课程&message=查看&color=pink&style=flat"></a>
-<a href="https://www.zhihu.com/people/labuladong"><img src="https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-@labuladong-000000.svg?style=flat-square&logo=Zhihu"></a>
-<a href="https://space.bilibili.com/14089380"><img src="https://img.shields.io/badge/B站-@labuladong-000000.svg?style=flat-square&logo=Bilibili"></a>
-</p>
+---
+LRU 算法是一种缓存淘汰策略。Leetcode 例子如下：
 
-![](https://labuladong.github.io/pictures/souyisou1.png)
+|                          LeetCode                          |                                力扣                                 | 难度  |
+| :--------------------------------------------------------: | :---------------------------------------------------------------: | :-: |
+| [146. LRU Cache](https://leetcode.com/problems/lru-cache/) |      [146. LRU 缓存](https://leetcode.cn/problems/lru-cache/)       | 🟠  |
+|                             -                              | [剑指 Offer II 031. 最近最少使用缓存](https://leetcode.cn/problems/OrIXps/) | 🟠  |
 
-**通知：[数据结构精品课](https://aep.h5.xeknow.com/s/1XJHEO) 和 [递归算法专题课](https://aep.xet.tech/s/3YGcq3) 限时附赠网站会员，全新纸质书[《labuladong 的算法笔记》](https://labuladong.gitee.io/algo/images/book/book_intro_qrcode.jpg) 出版，签名版限时半价！另外，建议你在我的 [网站](https://labuladong.github.io/algo/) 学习文章，体验更好。**
-
-
-
-读完本文，你不仅学会了算法套路，还可以顺便解决如下题目：
-
-| LeetCode | 力扣 | 难度 |
-| :----: | :----: | :----: |
-| [146. LRU Cache](https://leetcode.com/problems/lru-cache/) | [146. LRU 缓存](https://leetcode.cn/problems/lru-cache/) | 🟠
-| - | [剑指 Offer II 031. 最近最少使用缓存](https://leetcode.cn/problems/OrIXps/) | 🟠
-
-**-----------**
-
-LRU 算法就是一种缓存淘汰策略，原理不难，但是面试中写出没有 bug 的算法比较有技巧，需要对数据结构进行层层抽象和拆解，本文就带你写一手漂亮的代码。
-
-计算机的缓存容量有限，如果缓存满了就要删除一些内容，给新内容腾位置。但问题是，删除哪些内容呢？我们肯定希望删掉哪些没什么用的缓存，而把有用的数据继续留在缓存里，方便之后继续使用。那么，什么样的数据，我们判定为「有用的」的数据呢？
-
-LRU 缓存淘汰算法就是一种常用策略。LRU 的全称是 Least Recently Used，也就是说我们认为最近使用过的数据应该是是「有用的」，很久都没用过的数据应该是无用的，内存满了就优先删那些很久没用过的数据。
-
-举个简单的例子，安卓手机都可以把软件放到后台运行，比如我先后打开了「设置」「手机管家」「日历」，那么现在他们在后台排列的顺序是这样的：
-
-![](https://labuladong.github.io/pictures/LRU算法/1.jpg)
-
-但是这时候如果我访问了一下「设置」界面，那么「设置」就会被提前到第一个，变成这样：
-
-![](https://labuladong.github.io/pictures/LRU算法/2.jpg)
-
-假设我的手机只允许我同时开 3 个应用程序，现在已经满了。那么如果我新开了一个应用「时钟」，就必须关闭一个应用为「时钟」腾出一个位置，关那个呢？
-
-按照 LRU 的策略，就关最底下的「手机管家」，因为那是最久未使用的，然后把新开的应用放到最上面：
-
-![](https://labuladong.github.io/pictures/LRU算法/3.jpg)
-
-现在你应该理解 LRU（Least Recently Used）策略了。当然还有其他缓存淘汰策略，比如不要按访问的时序来淘汰，而是按访问频率（LFU 策略）来淘汰等等，各有应用场景。本文讲解 LRU 算法策略，我会在 [LFU 算法详解](https://labuladong.github.io/article/fname.html?fname=LFU) 中讲解 LFU 算法。
 
 ### 一、LRU 算法描述
 
@@ -280,11 +244,6 @@ class LRUCache {
 }
 ```
 
-`put` 方法稍微复杂一些，我们先来画个图搞清楚它的逻辑：
-
-![](https://labuladong.github.io/pictures/LRU算法/put.jpg)
-
-这样我们可以轻松写出 `put` 方法的代码：
 
 <!-- muliti_language -->
 ```java
@@ -310,385 +269,50 @@ class LRUCache {
 }
 ```
 
-至此，你应该已经完全掌握 LRU 算法的原理和实现了，我们最后用 Java 的内置类型 `LinkedHashMap` 来实现 LRU 算法，逻辑和之前完全一致，我就不过多解释了：
+
+使用 JDK 的LinkedHashMap就非常简单了。LinkedHashMap底层使用的也是Map 和链表的结构。
 
 <!-- muliti_language -->
 ```java
-class LRUCache {
-    int cap;
-    LinkedHashMap<Integer, Integer> cache = new LinkedHashMap<>();
-    public LRUCache(int capacity) { 
-        this.cap = capacity;
-    }
-    
-    public int get(int key) {
-        if (!cache.containsKey(key)) {
-            return -1;
-        }
-        // 将 key 变为最近使用
-        makeRecently(key);
-        return cache.get(key);
-    }
-    
-    public void put(int key, int val) {
-        if (cache.containsKey(key)) {
-            // 修改 key 的值
-            cache.put(key, val);
-            // 将 key 变为最近使用
-            makeRecently(key);
-            return;
-        }
-        
-        if (cache.size() >= this.cap) {
-            // 链表头部就是最久未使用的 key
-            int oldestKey = cache.keySet().iterator().next();
-            cache.remove(oldestKey);
-        }
-        // 将新的 key 添加链表尾部
-        cache.put(key, val);
-    }
-    
-    private void makeRecently(int key) {
-        int val = cache.get(key);
-        // 删除 key，重新插入到队尾
-        cache.remove(key);
-        cache.put(key, val);
-    }
+package org.stone.study.algo.ex202403;  
+  
+import java.util.LinkedHashMap;  
+import java.util.Map;  
+  
+public class LRUCache {  
+    private final LinkedHashMap<Integer, Integer> cache;  
+  
+    public LRUCache(int capacity) {  
+        // accessOrder:true按照访问顺序，false 按照插入顺序  
+        cache = new LinkedHashMap<Integer, Integer>(capacity, 0.75f, true) {  
+            protected boolean removeEldestEntry(Map.Entry eldest) {  
+                return size() > capacity;  
+            }  
+        };  
+    }  
+  
+    public int get(int key) {  
+        return cache.getOrDefault(key, -1) ;  
+    }  
+  
+    public void put(int key, int value) {  
+        cache.put(key, value);  
+    }  
+  
+    public static void main(String[] args) {  
+        LRUCache cache = new LRUCache( 2 /* 缓存容量 */ );  
+  
+        cache.put(1, 1);  
+        cache.put(2, 2);  
+        int val = cache.get(1);       // 返回  1        System.out.println("val:" + val);  
+        cache.put(3, 3);    // 该操作会使得密钥 2 作废  
+        val = cache.get(2);       // 返回 -1 (未找到)  
+        System.out.println("val:" + val);  
+        cache.put(4, 4);    // 该操作会使得密钥 1 作废  
+        val = cache.get(1);       // 返回 -1 (未找到)  
+        System.out.println("val:" + val);  
+        val = cache.get(3);       // 返回  3        System.out.println("val:" + val);  
+        val = cache.get(4);       // 返回  4        System.out.println("val:" + val);  
+    }  
 }
 ```
-
-至此，LRU 算法就没有什么神秘的了。更多数据结构设计相关的题目参见 [数据结构设计经典习题](https://appktavsiei5995.pc.xiaoe-tech.com/detail/i_6312b9e5e4b0eca59c2b7e93/1)。
-
-接下来可阅读：
-
-* [手把手带你实现 LFU 算法](https://labuladong.github.io/article/fname.html?fname=LFU)
-
-
-
-<hr>
-<details class="hint-container details">
-<summary><strong>引用本文的文章</strong></summary>
-
- - [一文看懂 session 和 cookie](https://labuladong.github.io/article/fname.html?fname=session和cookie)
- - [常数时间删除/查找数组中的任意元素](https://labuladong.github.io/article/fname.html?fname=随机集合)
- - [数据结构设计：最大栈](https://labuladong.github.io/article/fname.html?fname=最大栈)
- - [算法就像搭乐高：带你手撸 LFU 算法](https://labuladong.github.io/article/fname.html?fname=LFU)
- - [算法笔试「骗分」套路](https://labuladong.github.io/article/fname.html?fname=刷题技巧)
-
-</details><hr>
-
-
-
-
-<hr>
-<details class="hint-container details">
-<summary><strong>引用本文的题目</strong></summary>
-
-<strong>安装 [我的 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介) 点开下列题目可直接查看解题思路：</strong>
-
-| LeetCode | 力扣 |
-| :----: | :----: |
-| - | [剑指 Offer II 031. 最近最少使用缓存](https://leetcode.cn/problems/OrIXps/?show=1) |
-
-</details>
-<hr>
-
-
-
-**＿＿＿＿＿＿＿＿＿＿＿＿＿**
-
-**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
-
-![](https://labuladong.github.io/pictures/souyisou2.png)
-
-======其他语言代码======
-
-[146.LRU缓存机制](https://leetcode-cn.com/problems/lru-cache/)
-
-### c++
-
-[gowufang](https://github.com/gowufang)提供第146题C++代码：
-```cpp
-class LRUCache {
-        public:
-        struct node {
-            int val;
-            int key;
-            node* pre;//当前节点的前一个节点
-            node* next;//当前节点的后一个节点
-            node(){}
-            node(int key, int val):key(key), val(val), pre(NULL), next(NULL){}
-        };
-
-        LRUCache(int size) {
-            this->size = size;
-            head = new node();
-            tail = new node();
-            head->next = tail;
-            tail->pre = head;
-        }
-
-
-        void movetohead(node* cur)//相当于一个insert操作，在head 和 head的next之间插入一个节点
-        {
-            node* next = head->next;//head的next先保存起来
-            head->next = cur;//将当前节点移动到head的后面
-            cur->pre = head;//当前节点cur的pre指向head
-            next->pre = cur;
-            cur->next = next;
-        }
-
-        node* deletecurrentnode(node* cur)//移除当前节点
-        {
-            cur->pre->next = cur->next;
-            cur->next->pre = cur->pre;
-            return cur;
-        }
-        void makerecently(node* cur)
-        {
-            node* temp = deletecurrentnode(cur);// 删除 cur，要重新插入到对头
-            movetohead(temp);//cur放到队头去
-        }
-        int get(int key)
-        {
-            int ret = -1;
-            if ( map.count(key))
-            {
-                node* temp = map[key];
-                makerecently(temp);// 将 key 变为最近使用
-                ret = temp->val;
-            }
-            return ret;
-        }
-
-        void put(int key, int value) {
-            if ( map.count(key))
-            {
-                // 修改 key 的值
-                node* temp = map[key];
-                temp->val = value;
-                // 将 key 变为最近使用
-                makerecently(temp);
-            }
-            else
-            {
-                node* cur = new node(key, value);
-                if( map.size()== size )
-                {
-                    // 链表头部就是最久未使用的 key
-                    node *temp = deletecurrentnode(tail->pre);
-                    map.erase(temp->key);
-                }
-                movetohead(cur);
-                map[key] = cur;
-
-            }
-        
-        }
-
-        unordered_map<int, node*> map;
-        int size;
-        node* head, *tail;
-
-    };
-```
-
-
-
-### python
-
-```python
-"""
-所谓LRU缓存，根本的难点在于记录最久被使用的键值对，这就设计到排序的问题，
-在python中，天生具备排序功能的字典就是OrderDict。
-注意到，记录最久未被使用的键值对的充要条件是将每一次put/get的键值对都定义为
-最近访问，那么最久未被使用的键值对自然就会排到最后。
-如果你深入python OrderDict的底层实现，就会知道它的本质是个双向链表+字典。
-它内置支持了
-1. move_to_end来重排链表顺序，它可以让我们将最近访问的键值对放到最后面
-2. popitem来弹出键值对，它既可以弹出最近的，也可以弹出最远的，弹出最远的就是我们要的操作。
-"""
-from collections import OrderedDict
-class LRUCache:
-  def __init__(self, capacity: int):
-    self.capacity = capacity  # cache的容量
-    self.visited = OrderedDict()  # python内置的OrderDict具备排序的功能
-    
-  def get(self, key: int) -> int:
-    if key not in self.visited:
-      return -1
-    self.visited.move_to_end(key)  # 最近访问的放到链表最后，维护好顺序
-    return self.visited[key]
-
-  def put(self, key: int, value: int) -> None:
-    if key not in self.visited and len(self.visited) == self.capacity:
-      # last=False时，按照FIFO顺序弹出键值对
-      # 因为我们将最近访问的放到最后，所以最远访问的就是最前的，也就是最first的，故要用FIFO顺序
-      self.visited.popitem(last=False)
-      self.visited[key]=value
-      self.visited.move_to_end(key)    # 最近访问的放到链表最后，维护好顺序
-
-
-```
-
-
-
-### javascript
-
-没啥好说的，es6的哈希表Map + 双向链表。
-
-这里先使用es5的语法实现一遍，看完后相信你一定能用es6的class语法实现，这里的map用的是es6中的map()，这题是研究LRU的，就不用在{}和map()上过于深究了，直接用`new Map()`比较方便。
-
-```js
-// 双向链表节点
-var LinkNode = function (key, val) {
-    if (!(this instanceof LinkNode)) {
-        return new LinkNode(key, val)
-    }
-    this.key = key;
-    this.val = val;
-}
-
-// 双向链表
-var DoubleLink = function () {
-    // 初始化双向链表的数据
-    this.head = new LinkNode(0, 0);
-    this.tail = new LinkNode(0, 0);
-
-    this.head.next = this.tail;
-    this.tail.prev = this.head;
-
-    // 链表元素数
-    this.size = 0;
-}
-
-// // 在链表尾部添加节点 x，时间 O(1)
-DoubleLink.prototype.addLast = function (node) {
-    node.prev = this.tail.prev;
-    node.next = this.tail;
-    this.tail.prev.next = node;
-    this.tail.prev = node;
-
-    ++this.size;
-}
-
-// 删除链表中的 x 节点（x 一定存在）
-// 由于是双链表且给的是目标 Node 节点，时间 O(1)
-DoubleLink.prototype.remove = function (node) {
-    node.prev.next = node.next;
-    node.next.prev = node.prev;
-    --this.size;
-}
-
-
-// 删除链表中第一个节点，并返回该节点，时间 O(1)
-DoubleLink.prototype.removeFirst = function () {
-    if (this.head.next === this.tail)
-        return null;
-
-    let first = this.head.next;
-    this.remove(first);
-    return first;
-}
-
-
-// 返回链表长度，时间 O(1)
-DoubleLink.prototype.getSize = function () {
-    return this.size;
-}
-
-
-/**
- * @param {number} capacity
- */
-var LRUCache = function (capacity) {
-    this.map = new Map();
-    this.cache = new DoubleLink();
-    this.cap = capacity;
-};
-
-/**
- * @param {number} key
- * @return {number}
- */
-LRUCache.prototype.get = function (key) {
-    if (!this.map.has(key)) {
-        return -1;
-    }
-    // 将该数据提升为最近使用的
-    this.makeRecently(key);
-    return this.map.get(key).val;
-};
-
-/**
- * @param {number} key
- * @param {number} value
- * @return {void}
- */
-LRUCache.prototype.put = function (key, value) {
-    if (this.map.has(key)) {
-        // 删除旧的数据
-        this.deleteKey(key);
-        // 新插入的数据为最近使用的数据
-        this.addRecently(key, value);
-        return;
-    }
-
-    if (this.cap === this.cache.getSize()) {
-        // 删除最久未使用的元素
-        this.removeLeastRecently();
-    }
-    // 添加为最近使用的元素
-    this.addRecently(key, value);
-};
-
-/**
- * Your LRUCache object will be instantiated and called as such:
- * var obj = new LRUCache(capacity)
- * var param_1 = obj.get(key)
- * obj.put(key,value)
- */
-
-/* 将某个 key 提升为最近使用的 */
-LRUCache.prototype.makeRecently = function (key) {
-    let x = this.map.get(key);
-
-    // 先从链表中删除这个节点
-    this.cache.remove(x);
-
-    // 重新插入到队尾
-    this.cache.addLast(x);
-}
-
-/* 添加最近使用的元素 */
-LRUCache.prototype.addRecently = function (key, val) {
-    let x = new LinkNode(key, val);
-
-    // 链表尾部就是最近使用的元素
-    this.cache.addLast(x);
-    // 别忘了在 map 中添加 key 的映射
-    this.map.set(key, x);
-}
-
-/* 删除某一个 key */
-LRUCache.prototype.deleteKey = function (key) {
-    let x = this.map.get(key);
-    // 从链表中删除
-    this.cache.remove(x);
-    // 从 map 中删除
-    this.map.delete(key);
-   
-}
-
-/* 删除最久未使用的元素 */
-LRUCache.prototype.removeLeastRecently = function () {
-    // 链表头部的第一个元素就是最久未使用的
-    let deletedNode = this.cache.removeFirst();
-
-    // 同时别忘了从 map 中删除它的 key
-    let deletedKey = deletedNode.key;
-    this.map.delete(deletedKey);
-}
-
-```
-

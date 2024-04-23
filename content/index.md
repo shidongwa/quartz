@@ -4,6 +4,7 @@
 ### Favourite Site
 - [ ] [Top GitHub repositories which everyone should look](https://github.com/shidongwa/top-github-repositories-which-everyone-should-look)
 - [ ] [github trending](https://github.com/trending)
+- [ ] https://help.obsidian.md/Home
 ---
 ### APP
 - [ ] Mimo — Learn to Code

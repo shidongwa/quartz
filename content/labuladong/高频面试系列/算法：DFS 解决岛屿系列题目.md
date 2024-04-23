@@ -1,16 +1,16 @@
-# DFS 算法秒杀岛屿系列题目
+## LeetCode题目
 
-| LeetCode | 力扣 | 难度 |
-| :----: | :----: | :----: |
-| [1020. Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/) | [1020. 飞地的数量](https://leetcode.cn/problems/number-of-enclaves/) | 🟠
-| [1254. Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands/) | [1254. 统计封闭岛屿的数目](https://leetcode.cn/problems/number-of-closed-islands/) | 🟠
-| [1905. Count Sub Islands](https://leetcode.com/problems/count-sub-islands/) | [1905. 统计子岛屿](https://leetcode.cn/problems/count-sub-islands/) | 🟠
-| [200. Number of Islands](https://leetcode.com/problems/number-of-islands/) | [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/) | 🟠
-| [694. Number of Distinct Islands](https://leetcode.com/problems/number-of-distinct-islands/)🔒 | [694. 不同岛屿的数量](https://leetcode.cn/problems/number-of-distinct-islands/)🔒 | 🟠
-| [695. Max Area of Island](https://leetcode.com/problems/max-area-of-island/) | [695. 岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island/) | 🟠
-| - | [剑指 Offer II 105. 岛屿的最大面积](https://leetcode.cn/problems/ZL6zAn/) | 🟠
-
-**-----------**
+|                                            LeetCode                                            |                                     力扣                                     | 难度  |
+| :--------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------: | :-: |
+|         [1020. Number of Enclaves](https://leetcode.com/problems/number-of-enclaves/)          |      [1020. 飞地的数量](https://leetcode.cn/problems/number-of-enclaves/)       | 🟠  |
+|   [1254. Number of Closed Islands](https://leetcode.com/problems/number-of-closed-islands/)    | [1254. 统计封闭岛屿的数目](https://leetcode.cn/problems/number-of-closed-islands/)  | 🟠  |
+|          [1905. Count Sub Islands](https://leetcode.com/problems/count-sub-islands/)           |       [1905. 统计子岛屿](https://leetcode.cn/problems/count-sub-islands/)       | 🟠  |
+|           [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)           |        [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/)        | 🟠  |
+| [694. Number of Distinct Islands](https://leetcode.com/problems/number-of-distinct-islands/)🔒 | [694. 不同岛屿的数量](https://leetcode.cn/problems/number-of-distinct-islands/)🔒 | 🟠  |
+|          [695. Max Area of Island](https://leetcode.com/problems/max-area-of-island/)          |      [695. 岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island/)      | 🟠  |
+|                                               -                                                |      [剑指 Offer II 105. 岛屿的最大面积](https://leetcode.cn/problems/ZL6zAn/)      | 🟠  |
+[200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/)
+## 算法分析
 
 岛屿系列算法问题是经典的面试高频题，虽然基本的问题并不难，但是这类问题有一些有意思的扩展，比如求子岛屿数量，求形状不同的岛屿数量等等，本文就来把这些问题一网打尽。
 
@@ -524,42 +524,3 @@ class Solution {
 这样，这道题就解决了，至于为什么初始调用 `dfs` 函数时的 `dir` 参数可以随意写，因为这个 `dfs` 函数实际上是回溯算法，它关注的是「树枝」而不是「节点」，前文 [图算法基础](https://labuladong.github.io/article/fname.html?fname=图) 有写具体的区别，这里就不赘述了。
 
 以上就是全部岛屿系列题目的解题思路，也许前面的题目大部分人会做，但是最后两题还是比较巧妙的，希望本文对你有帮助。 
-
-
-
-<hr>
-<details class="hint-container details">
-<summary><strong>引用本文的文章</strong></summary>
-
- - [FloodFill算法详解及应用](https://labuladong.github.io/article/fname.html?fname=FloodFill算法详解及应用)
- - [东哥带你刷二叉树（纲领篇）](https://labuladong.github.io/article/fname.html?fname=二叉树总结)
- - [并查集（Union-Find）算法](https://labuladong.github.io/article/fname.html?fname=UnionFind算法详解)
-
-</details><hr>
-
-
-
-
-<hr>
-<details class="hint-container details">
-<summary><strong>引用本文的题目</strong></summary>
-
-<strong>安装 [我的 Chrome 刷题插件](https://labuladong.github.io/article/fname.html?fname=chrome插件简介) 点开下列题目可直接查看解题思路：</strong>
-
-| LeetCode | 力扣 |
-| :----: | :----: |
-| [1219. Path with Maximum Gold](https://leetcode.com/problems/path-with-maximum-gold/?show=1) | [1219. 黄金矿工](https://leetcode.cn/problems/path-with-maximum-gold/?show=1) |
-| [79. Word Search](https://leetcode.com/problems/word-search/?show=1) | [79. 单词搜索](https://leetcode.cn/problems/word-search/?show=1) |
-| - | [剑指 Offer 13. 机器人的运动范围](https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/?show=1) |
-| - | [剑指 Offer II 105. 岛屿的最大面积](https://leetcode.cn/problems/ZL6zAn/?show=1) |
-
-</details>
-<hr>
-
-
-
-**＿＿＿＿＿＿＿＿＿＿＿＿＿**
-
-**《labuladong 的算法小抄》已经出版，关注公众号查看详情；后台回复「**全家桶**」可下载配套 PDF 和刷题全家桶**：
-
-![](https://labuladong.github.io/pictures/souyisou2.png)
