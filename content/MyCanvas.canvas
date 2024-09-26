@@ -1,0 +1,8 @@
+{
+	"nodes":[
+		{"id":"e98a13c80f8c52b5","x":-172,"y":-258,"width":400,"height":400,"type":"link","url":"https://github.com/weijunext/indie-hacker-tools"},
+		{"id":"c936e972348904f6","x":-660,"y":-258,"width":400,"height":400,"type":"link","url":"https://github.com/apachecn/awesome-indie-zh?tab=readme-ov-file"},
+		{"id":"4c8f927a87081f82","type":"text","text":"<https://100startup.com/>","x":-360,"y":-420,"width":240,"height":60}
+	],
+	"edges":[]
+}
