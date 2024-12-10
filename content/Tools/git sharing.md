@@ -1,6 +1,16 @@
 ---
 git: " "
 ---
+
+
+## git 合并到master 的具体时间
+
+```
+git reflog master --date=iso
+```
+
+
+
 ## git rm --cached
 * `git rm --cached` delete file and folder in remote and staging area，**keep local file and folder**
 * `git rm`  delete file and folder in remote, staging and local area 
